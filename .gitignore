@@ -1,0 +1,6 @@
+*.pyc
+
+.vscode/
+credentials.py
+__pycache__/
+venv/
