@@ -24,11 +24,11 @@ ops = []
 r = httpx.get(url, params=params)
 ops = r.json()['opportunitiesData']
 
+def get_description(url: str) -> str:
+    r = httpx.get(url + '&api_key=' + credentials.api_key)
+    return r.text
+
 for op in ops:
     op['description_text'] = get_description(op['description'])
-
-def get_description(url: str) -> str:
-    r = httpx.get(url + 'api_key=' + credentials.api_key)
-    return r.text
 
 print(ops)
